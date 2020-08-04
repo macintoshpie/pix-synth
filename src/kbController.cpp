@@ -19,6 +19,7 @@ ShapeId nextShape(ShapeId shape) {
         case shapeTriangle:
             return shapeSquare;
     }
+    return shapeSquare;
 }
 
 ChannelId nextChannel(ChannelId chn) {
@@ -30,6 +31,7 @@ ChannelId nextChannel(ChannelId chn) {
         case chnBlue:
             return chnRed;
     }
+    return chnRed;
 }
 
 ModDst nextModDst(ModDst dst) {
@@ -41,6 +43,7 @@ ModDst nextModDst(ModDst dst) {
         case modWeight:
             return modPhase;
     }
+    return modPhase;
 }
 
 KbController::KbController() {
