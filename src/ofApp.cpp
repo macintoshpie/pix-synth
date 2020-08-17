@@ -3,12 +3,13 @@
 #include "channel.hpp"
 #include "wave.h"
 #include "generator.hpp"
+#include "gpioController.hpp"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofEnableAlphaBlending();
+    // ofEnableAlphaBlending();
     // not the best way to throttle speed. see here: https://forum.openframeworks.cc/t/for-those-who-dont-know-about-framerate-a-little-demo/6443/2
-    ofSetFrameRate(20);
+    // ofSetFrameRate(20);
     redWave = Wave(sawTable, TABLE_LENGTH, 10, 2);
     red = Channel(&redWave, false, 1.0, nullptr, 0.0, modPhase);
     greenWave = Wave(triangleTable, TABLE_LENGTH, 4, 1);
@@ -21,12 +22,14 @@ void ofApp::setup(){
 //    green.setWeight(0);
 //    blue.setWeight(0);
     synth = Synth(&red, &green, &blue, 60);
+    gpioController = GPIOController(&synth);
     kbController = KbController(&synth);
     ofBackground(ofColor::black);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    gpioController.update();
     synth.update();
 }
 

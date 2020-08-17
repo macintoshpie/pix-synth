@@ -5,6 +5,7 @@
 #include "channel.hpp"
 #include "wave.h"
 #include "kbController.hpp"
+#include "gpioController.hpp"
 
 class ofApp : public ofBaseApp{
 
@@ -27,6 +28,7 @@ class ofApp : public ofBaseApp{
     
 //        Wave wave;
         KbController kbController;
+        GPIOController gpioController;
         Synth synth;
         Wave redWave;
         Channel red;

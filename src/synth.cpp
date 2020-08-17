@@ -66,7 +66,7 @@ void Synth::draw() {
     texture.setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
     
     texture.draw(0,0, ofGetHeight(), ofGetHeight());
-    
+    //texture.draw(0, 0);
     if (debug) {
         std::string summaryStr = channelDebugString("red", red);
         summaryStr.append(channelDebugString("\ngreen", green));
